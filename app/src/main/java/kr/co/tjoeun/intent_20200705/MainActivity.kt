@@ -7,6 +7,10 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+//    숫자 1000 대신 코드에 어떤 요청인지 읽기 쉽도록 하는 조치
+    val REQ_CODE_FOR_NICKNAME = 1000
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -47,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 //            받을 데이터 (요청) 구별 고유 숫자 : requestCode
 
 //            어떤? 결과 => 새 닉네임을 얻으러. (1000 : 새 닉네임)
-            startActivityForResult(myIntent, 1000)
+            startActivityForResult(myIntent, REQ_CODE_FOR_NICKNAME)
 
 
         }
@@ -63,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
 //        어떤걸 가지러 다녀온건지 확인 (닉네임 인지)
-        if (requestCode == 1000) {
+        if (requestCode == REQ_CODE_FOR_NICKNAME) {
 
 //            완료를 누른게 맞는지
             if (resultCode == Activity.RESULT_OK) {
